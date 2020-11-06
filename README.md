@@ -6,4 +6,8 @@
 
 ## Development
 
-See [Strapi docs](https://strapi.io/documentation/)
+Install dependencies: `yarn install`
+
+Build and run locally: `yarn develop`
+
+See [Strapi docs](https://strapi.io/documentation/) for more details.
