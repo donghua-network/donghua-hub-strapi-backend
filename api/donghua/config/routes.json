@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/donhuas",
-      "handler": "donhua.find",
+      "path": "/donghuas",
+      "handler": "donghua.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/donhuas/count",
-      "handler": "donhua.count",
+      "path": "/donghuas/count",
+      "handler": "donghua.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/donhuas/:id",
-      "handler": "donhua.findOne",
+      "path": "/donghuas/:id",
+      "handler": "donghua.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/donhuas",
-      "handler": "donhua.create",
+      "path": "/donghuas",
+      "handler": "donghua.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/donhuas/:id",
-      "handler": "donhua.update",
+      "path": "/donghuas/:id",
+      "handler": "donghua.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/donhuas/:id",
-      "handler": "donhua.delete",
+      "path": "/donghuas/:id",
+      "handler": "donghua.delete",
       "config": {
         "policies": []
       }

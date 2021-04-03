@@ -11,7 +11,7 @@
   },
   "attributes": {
     "donghua": {
-      "model": "donhua"
+      "model": "donghua"
     },
     "person": {
       "model": "person"
