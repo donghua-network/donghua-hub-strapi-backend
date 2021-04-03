@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "donghuas",
+  "info": {
+    "name": "Donghua",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "numEpisodes": {
+      "type": "integer"
+    },
+    "duration": {
+      "type": "integer"
+    },
+    "mediaInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.media-info"
+    },
+    "genres": {
+      "collection": "genre"
+    },
+    "media_type": {
+      "model": "media-type"
+    },
+    "studios": {
+      "collection": "studio"
+    },
+    "series": {
+      "model": "media-series",
+      "via": "donghuas"
+    },
+    "streams": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.links"
+    },
+    "trailers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.links"
+    }
+  }
+}

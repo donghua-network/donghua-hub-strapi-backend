@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "staff_roles",
+  "info": {
+    "name": "Staff Role"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "donghua": {
+      "model": "donhua"
+    },
+    "person": {
+      "model": "person"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

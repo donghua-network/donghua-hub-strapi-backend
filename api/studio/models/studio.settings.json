@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "studios",
+  "info": {
+    "name": "Studio",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.links"
+    }
+  }
+}

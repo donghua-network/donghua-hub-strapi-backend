@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_general_links",
+  "info": {
+    "name": "Links",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    }
+  }
+}
