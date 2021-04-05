@@ -17,11 +17,6 @@
     "duration": {
       "type": "integer"
     },
-    "mediaInfo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "general.media-info"
-    },
     "genres": {
       "collection": "genre"
     },
@@ -35,18 +30,53 @@
       "model": "media-series",
       "via": "donghuas"
     },
-    "streams": {
-      "type": "component",
-      "repeatable": true,
-      "component": "general.links"
-    },
-    "trailers": {
-      "type": "component",
-      "repeatable": true,
-      "component": "general.links"
-    },
     "tags": {
       "collection": "tag"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "isAiring": {
+      "type": "boolean",
+      "default": false
+    },
+    "startDate": {
+      "type": "date"
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "streams": {
+      "type": "json"
+    },
+    "trailers": {
+      "type": "json"
+    },
+    "popularity": {
+      "type": "json"
+    },
+    "score": {
+      "type": "json"
+    },
+    "totalPopularity": {
+      "type": "biginteger"
+    },
+    "aggregateScore": {
+      "type": "float"
     }
   }
 }

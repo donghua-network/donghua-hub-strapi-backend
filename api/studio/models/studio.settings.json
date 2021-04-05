@@ -15,9 +15,7 @@
       "type": "string"
     },
     "links": {
-      "type": "component",
-      "repeatable": true,
-      "component": "general.links"
+      "type": "json"
     }
   }
 }
