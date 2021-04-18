@@ -77,6 +77,10 @@
     },
     "aggregateScore": {
       "type": "float"
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
