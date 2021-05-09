@@ -26,15 +26,8 @@
     "studios": {
       "collection": "studio"
     },
-    "series": {
-      "model": "media-series",
-      "via": "donghuas"
-    },
     "tags": {
       "collection": "tag"
-    },
-    "title": {
-      "type": "string"
     },
     "description": {
       "type": "text"
@@ -81,6 +74,18 @@
     "isFeatured": {
       "type": "boolean",
       "default": false
+    },
+    "titles": {
+      "type": "json"
+    },
+    "alternativeTitles": {
+      "type": "json"
+    },
+    "externalSiteIds": {
+      "type": "json"
+    },
+    "relatedWorks": {
+      "type": "json"
     }
   }
 }

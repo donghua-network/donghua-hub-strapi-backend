@@ -1,52 +1,8 @@
-const { sanitizeEntity } = require("strapi-utils");
+"use strict";
 
-const replaceImageWithUrl = (donghua, placeholder) => {
-  if (donghua.image && donghua.image.url) {
-    donghua.image = donghua.image.url;
-  } else {
-    donghua.image = placeholder;
-  }
-  return donghua;
-};
+/**
+ * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
+ * to customize this controller
+ */
 
-module.exports = {
-  /**
-   * Retrieve records.
-   *
-   * @return {Array}
-   */
-
-  async find(ctx) {
-    const placeholderImage = ctx.request.origin + "/images/placeholder.jpg";
-    let entities;
-    if (ctx.query._q) {
-      entities = await strapi.services.donghua.search(ctx.query);
-    } else {
-      entities = await strapi.services.donghua.find(ctx.query);
-    }
-
-    return entities.map((entity) =>
-      replaceImageWithUrl(
-        sanitizeEntity(entity, { model: strapi.models.donghua }),
-        placeholderImage
-      )
-    );
-  },
-
-  /**
-   * Retrieve a record.
-   *
-   * @return {Object}
-   */
-
-  async findOne(ctx) {
-    const placeholderImage = ctx.request.origin + "/images/placeholder.jpg";
-    const { id } = ctx.params;
-
-    const entity = await strapi.services.donghua.findOne({ id });
-    return replaceImageWithUrl(
-      sanitizeEntity(entity, { model: strapi.models.donghua }),
-      placeholderImage
-    );
-  },
-};
+module.exports = {};

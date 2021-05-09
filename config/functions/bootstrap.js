@@ -1,4 +1,5 @@
 "use strict";
+const fs = require("fs");
 
 /**
  * An asynchronous bootstrap function that runs before
@@ -18,11 +19,6 @@ async function createDummyData() {
 
   const dramaGenre = await strapi.services.genre.create({
     name: "Drama",
-  });
-
-  // media-series
-  const series = await strapi.services["media-series"].create({
-    name: "The King's Avatar",
   });
 
   // media-type
@@ -56,9 +52,13 @@ async function createDummyData() {
     genres: [actionGenre.id, dramaGenre.id],
     media_type: mediaType.id,
     studios: [studio.id],
-    series: series.id,
     tags: [tag1.id, tag2.id],
-    title: "The King's Avatar",
+    titles: {
+      romanized: "Quanzhi Gaoshou",
+      en: "The King's Avatar",
+      "zh-Hans": "全职高手",
+    },
+    alternativeTitles: ["全職高手", "Full-Time Expert", "Master of Skills"],
     description: `Widely regarded as a trailblazer and top-tier professional player in the online multiplayer game Glory, Ye Xiu is dubbed the "Battle God" for his skills and contributions to the game over the years. However, when forced to retire from the team and to leave his gaming career behind, he finds work at a nearby internet café. There, when Glory launches its tenth server, he throws himself into the game once more using a new character named "Lord Grim."
 
     Ye Xiu's early achievements on the new server immediately catch the attention of many players, as well as the big guilds, leaving them to wonder about the identity of this exceptional player. However, while he possesses ten years of experience and in-depth knowledge, starting afresh with neither sponsors nor a team in a game that has changed over the years presents numerous challenges. Along with talented new comrades, Ye Xiu once again dedicates himself to traversing the path to Glory's summit!
@@ -85,7 +85,96 @@ async function createDummyData() {
     totalPopularity: 292490,
     aggregateScore: 7.96,
     isFeatured: true,
+    relatedWorks: {
+      sequel: 2,
+    },
+    externalSiteIds: {
+      anilist: 98861,
+      myanimelist: 33926,
+    },
   });
+
+  // image
+  await strapi.entityService.uploadFiles(
+    donghua,
+    {
+      image: [
+        {
+          name: "placeholder.jpg",
+          type: "image/jpeg",
+          path: "./public/images/placeholder.jpg",
+        },
+      ],
+    },
+    {
+      model: "donghua",
+    }
+  );
+
+  // donghua
+  const donghua2 = await strapi.services.donghua.create({
+    numEpisodes: 12,
+    duration: 24,
+    genres: [actionGenre.id, dramaGenre.id],
+    media_type: mediaType.id,
+    studios: [studio.id],
+    tags: [tag1.id, tag2.id],
+    titles: {
+      romanized: "Quanzhi Gaoshou Specials",
+      "zh-Hans": "全职高手 特别篇",
+    },
+    alternativeTitles: ["全職高手", "Full-Time Expert", "Master of Skills"],
+    description: `Widely regarded as a trailblazer and top-tier professional player in the online multiplayer game Glory, Ye Xiu is dubbed the "Battle God" for his skills and contributions to the game over the years. However, when forced to retire from the team and to leave his gaming career behind, he finds work at a nearby internet café. There, when Glory launches its tenth server, he throws himself into the game once more using a new character named "Lord Grim."
+
+    Ye Xiu's early achievements on the new server immediately catch the attention of many players, as well as the big guilds, leaving them to wonder about the identity of this exceptional player. However, while he possesses ten years of experience and in-depth knowledge, starting afresh with neither sponsors nor a team in a game that has changed over the years presents numerous challenges. Along with talented new comrades, Ye Xiu once again dedicates himself to traversing the path to Glory's summit!
+    
+    [Written by MAL Rewrite]`,
+    isAiring: false,
+    startDate: new Date(),
+    endDate: new Date(),
+    streams: [
+      {
+        platform: "youtube",
+        url:
+          "https://www.youtube.com/watch?v=O7XQd5wRPm8&list=PLMX26aiIvX5pFbfTf10Tke0CiMwxO76fT",
+      },
+    ],
+    trailers: [
+      {
+        platform: "youtube",
+        url: "https://www.youtube.com/watch?v=ef7GCI4Cdxg",
+      },
+    ],
+    popularity: [{ platform: "myanimelist", numUsers: 292490 }],
+    score: [{ platform: "myanimelist", score: 7.96 }],
+    totalPopularity: 292490,
+    aggregateScore: 7.96,
+    isFeatured: true,
+    relatedWorks: {
+      prequel: 1,
+    },
+    externalSiteIds: {
+      anilist: 101410,
+      myanimelist: 37078,
+    },
+  });
+
+  // image2
+  await strapi.entityService.uploadFiles(
+    donghua2,
+    {
+      image: [
+        {
+          name: "placeholder2.jpg",
+          type: "image/jpeg",
+          path: "./public/images/placeholder.jpg",
+        },
+      ],
+    },
+    {
+      model: "donghua",
+    }
+  );
 
   // staff-role
   await strapi.services["staff-role"].create({
@@ -101,10 +190,11 @@ async function setPublicRolePermissions() {
     .findOne({ type: "public" });
   const permissionsToUpdate = publicRole.permissions.filter(
     (permission) =>
-      permission.type === "application" &&
+      (permission.type === "application" || permission.type === "upload") &&
       (permission.action === "count" ||
         permission.action === "find" ||
-        permission.action === "findone")
+        permission.action === "findone" ||
+        permission.action === "search")
   );
 
   for (const permission of permissionsToUpdate) {
