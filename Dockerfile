@@ -11,6 +11,7 @@ COPY ./api ./api
 COPY ./config ./config
 COPY ./extensions ./extensions
 COPY ./public/images/ ./public/images/
+COPY ./public/uploads/ ./public/uploads/
 
 ENV NODE_ENV development
 
