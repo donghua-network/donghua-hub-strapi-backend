@@ -67,21 +67,17 @@ async function createDummyData() {
     isAiring: false,
     startDate: new Date(),
     endDate: new Date(),
-    streams: [
-      {
-        platform: "youtube",
-        url:
-          "https://www.youtube.com/watch?v=O7XQd5wRPm8&list=PLMX26aiIvX5pFbfTf10Tke0CiMwxO76fT",
-      },
-    ],
+    streams: {
+      youtube:
+        "https://www.youtube.com/watch?v=O7XQd5wRPm8&list=PLMX26aiIvX5pFbfTf10Tke0CiMwxO76fT",
+    },
     trailers: [
       {
-        platform: "youtube",
-        url: "https://www.youtube.com/watch?v=ef7GCI4Cdxg",
+        youtube: "ef7GCI4Cdxg",
       },
     ],
-    popularity: [{ platform: "myanimelist", numUsers: 292490 }],
-    score: [{ platform: "myanimelist", score: 7.96 }],
+    popularity: { myanimelist: 292490 },
+    score: { myanimelist: 7.96 },
     totalPopularity: 292490,
     aggregateScore: 7.96,
     isFeatured: true,
@@ -132,21 +128,17 @@ async function createDummyData() {
     isAiring: false,
     startDate: new Date(),
     endDate: new Date(),
-    streams: [
-      {
-        platform: "youtube",
-        url:
-          "https://www.youtube.com/watch?v=O7XQd5wRPm8&list=PLMX26aiIvX5pFbfTf10Tke0CiMwxO76fT",
-      },
-    ],
+    streams: {
+      youtube:
+        "https://www.youtube.com/watch?v=O7XQd5wRPm8&list=PLMX26aiIvX5pFbfTf10Tke0CiMwxO76fT",
+    },
     trailers: [
       {
-        platform: "youtube",
-        url: "https://www.youtube.com/watch?v=ef7GCI4Cdxg",
+        youtube: "ef7GCI4Cdxg",
       },
     ],
-    popularity: [{ platform: "myanimelist", numUsers: 292490 }],
-    score: [{ platform: "myanimelist", score: 7.96 }],
+    popularity: { myanimelist: 292490 },
+    score: { myanimelist: 7.96 },
     totalPopularity: 292490,
     aggregateScore: 7.96,
     isFeatured: true,
