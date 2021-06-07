@@ -45,6 +45,11 @@ async function createDummyData() {
     name: "E-Sports",
   });
 
+  // status
+  const status = await strapi.services.status.create({
+    name: "Airing",
+  });
+
   // donghua
   const donghua = await strapi.services.donghua.create({
     numEpisodes: 12,
@@ -64,7 +69,7 @@ async function createDummyData() {
     Ye Xiu's early achievements on the new server immediately catch the attention of many players, as well as the big guilds, leaving them to wonder about the identity of this exceptional player. However, while he possesses ten years of experience and in-depth knowledge, starting afresh with neither sponsors nor a team in a game that has changed over the years presents numerous challenges. Along with talented new comrades, Ye Xiu once again dedicates himself to traversing the path to Glory's summit!
     
     [Written by MAL Rewrite]`,
-    isAiring: false,
+    status: status.id,
     startDate: new Date(),
     endDate: new Date(),
     streams: {
@@ -125,7 +130,7 @@ async function createDummyData() {
     Ye Xiu's early achievements on the new server immediately catch the attention of many players, as well as the big guilds, leaving them to wonder about the identity of this exceptional player. However, while he possesses ten years of experience and in-depth knowledge, starting afresh with neither sponsors nor a team in a game that has changed over the years presents numerous challenges. Along with talented new comrades, Ye Xiu once again dedicates himself to traversing the path to Glory's summit!
     
     [Written by MAL Rewrite]`,
-    isAiring: false,
+    status: status.id,
     startDate: new Date(),
     endDate: new Date(),
     streams: {

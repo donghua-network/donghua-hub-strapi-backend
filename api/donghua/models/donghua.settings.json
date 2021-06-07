@@ -43,10 +43,6 @@
       "plugin": "upload",
       "required": false
     },
-    "isAiring": {
-      "type": "boolean",
-      "default": false
-    },
     "startDate": {
       "type": "date"
     },
@@ -86,6 +82,9 @@
     },
     "relatedWorks": {
       "type": "json"
+    },
+    "status": {
+      "model": "status"
     }
   }
 }
