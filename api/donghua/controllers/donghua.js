@@ -1,6 +1,6 @@
 const { sanitizeEntity } = require("strapi-utils");
 // TODO get rid of this hardcoded variable
-const PROD_FILE_PREFIX = "https://files.donghuahub.com/";
+const PROD_FILE_PREFIX = "https://files.donghuahub.com/file/donghuahub/";
 module.exports = {
   async find(ctx) {
     let entities;
