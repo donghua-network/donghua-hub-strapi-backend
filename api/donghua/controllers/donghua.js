@@ -12,7 +12,7 @@ module.exports = {
 
     for (const entity of entities) {
       if (entity.image) {
-        if (strapi.config.currentEnvironment == "production") {
+        if (strapi.config.environment == "production") {
           const urlParts = entity.image.url.split("/");
           entity.imageUrl = PROD_FILE_PREFIX + urlParts[urlParts.length - 1];
         } else {
@@ -33,7 +33,7 @@ module.exports = {
 
     const entity = await strapi.services.donghua.findOne({ id });
     if (entity.image) {
-      if (strapi.config.currentEnvironment == "production") {
+      if (strapi.config.environment == "production") {
         const urlParts = entity.image.url.split("/");
         entity.imageUrl = PROD_FILE_PREFIX + urlParts[urlParts.length - 1];
       } else {
